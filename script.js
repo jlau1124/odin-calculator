@@ -14,10 +14,10 @@ function divide(a,b) {
   return a / b
 }
 
+let num1 = ""
+let operator = ""
+let num2 = ""
 
-let num1;
-let operator;
-let num2;
 
 function operate(num1, operator, num2){
     if (operator === "+") {
@@ -31,4 +31,22 @@ function operate(num1, operator, num2){
     } else {
         return 'Error, you must enter two numbers and a valid operator'
     }
+}
+
+const display = document.querySelector(".display")
+
+
+/* Query Selectors and event listeners */
+
+const digits = document.querySelectorAll(".digits")
+digits.forEach((digit) => {
+    digit.addEventListener("click", (e) => {
+        updateNum(e.target.textContent)
+    })
+})
+
+
+function updateNum(currentNumber){
+     num1 = num1 + currentNumber
+     display.textContent = num1
 }
