@@ -10,16 +10,38 @@ body {
 .container{
     width: 100%;
     max-width: 400px;
-    border-radius: 2px solid #ffffff;
+    border: 2px solid #ffffff;
     background-color: #9FCDEE;
     padding: 20px;
-    box-sizing: border-box
+    box-sizing: border-box /* review: https://www.youtube.com/watch?v=rIO5326FgPE&pp=ygUcYm94IG1vZGVsIHdlYiBkZXYgc2ltcGxpZmllZA%3D%3D*/
 }
 
 .display {
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; /* review: https://www.youtube.com/watch?v=rIO5326FgPE&pp=ygUcYm94IG1vZGVsIHdlYiBkZXYgc2ltcGxpZmllZA%3D%3D*/
     background-color: #E5E7F6;
     text-align: right;
     height: 120px;
+}
+
+.buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+button{
+    flex: 1 1 calc(25% - 9px); /* 25% width minus its share of gaps */
+    height: 60px;
+    font-size: 1.25rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Selects the '=' button (19 button in my HTML list) */
+button:nth-child(19) {
+    flex: 2 1 calc(50% - 6px); /* Double width for 2 columns */
+    background-color: #BE92DA;
 }
