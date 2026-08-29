@@ -61,14 +61,18 @@ operators.forEach((op) => {
     op.addEventListener("click", (e) => {
         // console.log(num1, operator, num2)
         if (num1 !== null && operator !== "") { /* that means there is an operation going*/
-            num1 = operate(Number(num1), operator, Number(display.textContent));
-            if (typeof num1 === "string") {
-                display.textContent = num1;
-                clearAll();
-            } else {
-                display.textContent = num1;
-                operator = e.target.textContent;
-                isWatingForSecondNum = true;
+            if (num2 === "") {
+                operator = e.target.textContent
+            } else{
+                num1 = operate(Number(num1), operator, Number(display.textContent));
+                if (typeof num1 === "string") {
+                    display.textContent = num1;
+                    clearAll();
+                } else {
+                    display.textContent = num1;
+                    operator = e.target.textContent;
+                    isWatingForSecondNum = true;
+                }
             }
         } else { /* no operation is going*/
             num1 = Number(display.textContent);
