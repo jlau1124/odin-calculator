@@ -1,17 +1,21 @@
 function add(a, b) {
-	return a + b
+    let result = a + b;
+	return Number(result.toFixed(2));
 };
 
 function subtract(a, b) {
-	return a - b
+    let result = a - b;
+	return Number(result.toFixed(2));
 };
 
 function multiply(a,b) {
-  return a * b
+    let result = a * b
+    return Number(result.toFixed(2))
 };
 
 function divide(a,b) {
-  return a / b
+    let result = a / b
+    return Number(result.toFixed(2))
 }
 
 let num1 = ""
@@ -75,9 +79,9 @@ function updateNum(currentNumber){
 const equals = document.querySelector("#equals")
 equals.addEventListener('click', () => {
     num2 = Number(display.textContent);
-    let result = operate(num1, operator, num2)
-    num1 = result
+    let result = operate(num1, operator, num2);
+    num1 = result;
     isWatingForSecondNum = true;
-    display.textContent = result
+    display.textContent = num1;
 
 })
