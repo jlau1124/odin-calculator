@@ -31,7 +31,12 @@ function operate(num1, operator, num2){
     } else if (operator === "*") {
         return multiply(num1, num2)
     } else if (operator === "/") {
-        return divide(num1, num2)
+        if (num2 === 0) {
+            return "Nice try, Einstein! Hit Clear."
+        }
+        else{
+            return divide(num1, num2)
+        }
     } else {
         return 'Error, you must enter two numbers and a valid operator'
     }
@@ -57,9 +62,14 @@ operators.forEach((op) => {
         // console.log(num1, operator, num2)
         if (num1 !== null && operator !== "") { /* that means there is an operation going*/
             num1 = operate(Number(num1), operator, Number(display.textContent));
-            display.textContent = num1;
-            operator = e.target.textContent;
-            isWatingForSecondNum = true;
+            if (typeof num1 === "string") {
+                display.textContent = num1;
+                clearAll();
+            } else {
+                display.textContent = num1;
+                operator = e.target.textContent;
+                isWatingForSecondNum = true;
+            }
         } else { /* no operation is going*/
             num1 = Number(display.textContent);
             operator = e.target.textContent;
@@ -79,16 +89,35 @@ function updateNum(currentNumber){
 
 const equals = document.querySelector("#equals")
 equals.addEventListener('click', () => {
-    if (num1 && operator && num2) {
+    if (num1 && operator && num2) { /* if we don't have all 3 */
         return 
     } else {
         num2 = Number(display.textContent);
         let result = operate(num1, operator, num2);
         num1 = result;
-        isWatingForSecondNum = true;
-        display.textContent = num1;
-        operator = "";
-        num2 = "";
+        if (typeof num1 === "string") {
+            display.textContent = num1;
+            clearAll()
+        }
+        else {
+            isWatingForSecondNum = true;
+            display.textContent = num1;
+            operator = "";
+            num2 = "";
+        }
     }
 
 })
+
+const clear = document.querySelector("#clear")
+clear.addEventListener('click', () => {
+    display.textContent = "";
+    clearAll();
+})
+
+function clearAll(){
+    num1 = "";
+    operator = "";
+    num2 = "";
+    isWatingForSecondNum = false;
+}
