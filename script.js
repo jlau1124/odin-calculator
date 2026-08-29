@@ -50,9 +50,16 @@ let isWatingForSecondNum = false; // flag for checking if operator is clicked
 const operators = document.querySelectorAll(".operator")
 operators.forEach((op) => {
     op.addEventListener("click", (e) => {
-        num1 = display.textContent
-        operator = e.target.textContent
-        isWatingForSecondNum = true;
+        if (num1 !== null && operator !== "") { /* that means there is an operation going*/
+            num1 = operate(Number(num1), operator, Number(display.textContent));
+            display.textContent = num1;
+            operator = e.target.textContent;
+            isWatingForSecondNum = true;
+        } else { /* no operation is going*/
+            num1 = display.textContent;
+            operator = e.target.textContent;
+            isWatingForSecondNum = true;
+        }
     })
 })
 
@@ -64,3 +71,13 @@ function updateNum(currentNumber){
         display.textContent += currentNumber;
      }
 }
+
+const equals = document.querySelector("#equals")
+equals.addEventListener('click', () => {
+    num2 = Number(display.textContent);
+    let result = operate(num1, operator, num2)
+    num1 = result
+    isWatingForSecondNum = true;
+    display.textContent = result
+
+})
