@@ -47,6 +47,15 @@ digits.forEach((digit) => {
 
 let isWatingForSecondNum = false; // flag for checking if operator is clicked 
 
+const operators = document.querySelectorAll(".operator")
+operators.forEach((operator) => {
+    operator.addEventListener("click", (e) => {
+        num1 = display.textContent
+        operator = e.target.textContent
+        isWatingForSecondNum = true;
+    })
+})
+
 function updateNum(currentNumber){
      num1 = num1 + currentNumber
      display.textContent = num1
