@@ -41,10 +41,11 @@ const display = document.querySelector(".display")
 const digits = document.querySelectorAll(".digits")
 digits.forEach((digit) => {
     digit.addEventListener("click", (e) => {
-        updateNum(e.target.textContent)
+        updateNum(e.target.textContent) // : click event => DOM element => string value. 
     })
 })
 
+let isWatingForSecondNum = false; // flag for checking if operator is clicked 
 
 function updateNum(currentNumber){
      num1 = num1 + currentNumber
