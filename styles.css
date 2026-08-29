@@ -13,12 +13,12 @@ body {
     border: 2px solid #ffffff;
     background-color: #9FCDEE;
     padding: 20px;
-    box-sizing: border-box /* review: https://www.youtube.com/watch?v=rIO5326FgPE&pp=ygUcYm94IG1vZGVsIHdlYiBkZXYgc2ltcGxpZmllZA%3D%3D*/
+    box-sizing: border-box 
 }
 
 .display {
     width: 100%;
-    box-sizing: border-box; /* review: https://www.youtube.com/watch?v=rIO5326FgPE&pp=ygUcYm94IG1vZGVsIHdlYiBkZXYgc2ltcGxpZmllZA%3D%3D*/
+    box-sizing: border-box; 
     background-color: #E5E7F6;
     text-align: right;
     height: 120px;
